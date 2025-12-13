@@ -13,9 +13,13 @@ export default function Hero() {
           container
           spacing={5}
           alignItems="center"
-          sx={{ py: { xs: 6, md: 10 } }}
+          sx={{
+            py: { xs: 6, md: 10 },
+            flexWrap: { xs: "wrap", md: "nowrap" },
+          }}
         >
-          <Grid item xs={12} md={7}>
+          {/* LEFT: TEXT */}
+          <Grid item xs={12} md={7} sx={{ minWidth: 0 }}>
             <Typography
               variant="overline"
               sx={{
@@ -34,6 +38,7 @@ export default function Hero() {
                 letterSpacing: "-0.03em",
                 lineHeight: 1.05,
                 fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.4rem" },
+                overflowWrap: "anywhere",
               }}
             >
               Building clean, data-driven products with React and AI.
@@ -84,7 +89,8 @@ export default function Hero() {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={5}>
+          {/* RIGHT: IMAGE */}
+          <Grid item xs={12} md={5} sx={{ flexShrink: 0 }}>
             <Box
               sx={{
                 width: "100%",
@@ -102,7 +108,12 @@ export default function Hero() {
                 component="img"
                 src={portrait}
                 alt="Portrait of Abiel"
-                sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </Box>
           </Grid>
