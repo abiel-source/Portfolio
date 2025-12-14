@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import portrait from "../assets/sfu_logo.png";
+import reactLogo from "../assets/react.svg";
 
 export default function Hero() {
   return (
@@ -19,17 +19,7 @@ export default function Hero() {
           }}
         >
           {/* LEFT: TEXT */}
-          <Grid item xs={12} md={7} sx={{ minWidth: 0 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "rgba(255,255,255,0.55)",
-                letterSpacing: "0.12em",
-              }}
-            >
-              Portfolio • Software / ML
-            </Typography>
-
+          <Grid item xs={12} md={7} sx={{ minWidth: 0, order: { xs: 2, md: 1 } }}>
             <Typography
               variant="h2"
               sx={{
@@ -90,29 +80,77 @@ export default function Hero() {
           </Grid>
 
           {/* RIGHT: IMAGE */}
-          <Grid item xs={12} md={5} sx={{ flexShrink: 0 }}>
+          <Grid
+            item
+            xs={12}
+            md={5}
+            sx={{
+              flexShrink: 0,
+              order: { xs: 1, md: 2 },
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-end" },
+            }}
+          >
             <Box
               sx={{
-                width: "100%",
-                maxWidth: 380,
-                mx: { xs: 0, md: "auto" },
-                borderRadius: 3,
-                overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.10)",
-                bgcolor: "rgba(255,255,255,0.04)",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.55)",
-                aspectRatio: "1 / 1",
+                width: { xs: "fit-content", md: "100%" },
+                maxWidth: { xs: 260, sm: 340, md: 400, lg: 400, xl: 400 },
+                height: { xs: 260, sm: 340, md: 400, lg: 400, xl: 400 },
+                mx: "auto",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                p: { xs: 2, sm: 3, md: 4 },
               }}
             >
               <Box
                 component="img"
-                src={portrait}
-                alt="Portrait of Abiel"
+                src={reactLogo}
+                alt="React Logo"
                 sx={{
-                  width: "100%",
+                  width: { xs: 220, sm: 280, md: "100%" },
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   display: "block",
+
+                  ml: {
+                    xs: "clamp(64px, calc((100vw - 275px) * 0.85), 420px)",
+                    sm: "clamp(64px, calc((100vw - 320px) * 0.85), 420px)",
+                    md: "14px",
+                    lg: 0,
+                  },
+
+                  willChange: "transform, filter",
+                  animation:
+                    "floatY 4.5s ease-in-out infinite, glowPulse 5s ease-in-out infinite",
+                  "&:hover": {
+                    animation:
+                      "floatSpin 6s ease-in-out infinite, glowPulse 3.5s ease-in-out infinite",
+                  },
+
+                  "@keyframes floatY": {
+                    "0%, 100%": { transform: "translateY(-20px)" },
+                    "50%": { transform: "translateY(20px)" },
+                  },
+                  "@keyframes floatSpin": {
+                    "0%": { transform: "translateY(0px) rotate(0deg)" },
+                    "50%": { transform: "translateY(-16px) rotate(180deg)" },
+                    "100%": { transform: "translateY(0px) rotate(360deg)" },
+                  },
+                  "@keyframes glowPulse": {
+                    "0%, 100%": {
+                      filter:
+                        "drop-shadow(0 0 26px rgba(97, 218, 251, 0.45)) drop-shadow(0 0 58px rgba(97, 218, 251, 0.22))",
+                    },
+                    "50%": {
+                      filter:
+                        "drop-shadow(0 0 46px rgba(97, 218, 251, 0.75)) drop-shadow(0 0 92px rgba(97, 218, 251, 0.38))",
+                    },
+                  },
+                  "@media (prefers-reduced-motion: reduce)": {
+                    animation: "none",
+                    "&:hover": { animation: "none" },
+                  },
                 }}
               />
             </Box>

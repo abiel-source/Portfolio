@@ -51,16 +51,7 @@ export default function App() {
       <main>
         <Hero />
 
-        {/* placeholders */}
-        {["work", "projects", "about", "contact"].map((id) => (
-          <Box key={id} id={id} sx={{ py: 10, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            <Container maxWidth="lg">
-              <Typography sx={{ color: "rgba(255,255,255,0.65)" }}>
-                {id.toUpperCase()} (coming soon)
-              </Typography>
-            </Container>
-          </Box>
-        ))}
+        
       </main>
     </Box>
   );
