@@ -61,50 +61,47 @@ export default function Header() {
             </Button>
           </Box>
 
-          {/* Middle: Tabs (desktop only) */}
+          {/* Middle: Navigation (desktop only) */}
           {!isMobile && (
-            <Tabs
-              value={value}
-              centered
-              textColor="inherit"
-              TabIndicatorProps={{ style: { display: "none" } }}
-              sx={{
-                px: 1,
-                border: "1px solid rgba(255,255,255,0.10)",
-                borderRadius: 999,
-                bgcolor: "rgba(255,255,255,0.03)",
-                "& .MuiTab-root": {
-                  textTransform: "none",
-                  minHeight: 44,
-                  px: 2,
-                  color: "rgba(255,255,255,0.72)",
-                  borderRadius: 999,
-                },
-                "& .MuiTab-root:hover": {
-                  bgcolor: "rgba(255,255,255,0.06)",
-                  color: "rgba(255,255,255,0.92)",
-                },
-              }}
-            >
+            <Box sx={{ display: "flex", gap: 3 }}>
               {NAV.map((item) => (
-                <Tab key={item.href} label={item.label} href={item.href} />
+                <Button
+                  key={item.href}
+                  href={item.href}
+                  variant="text"
+                  disableRipple
+                  sx={{
+                    textTransform: "none",
+                    fontWeight: 500,
+                    color: "text.primary",
+                    minWidth: "auto",
+                    p: 0,
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
               ))}
-            </Tabs>
+            </Box>
           )}
 
           {/* Right: Contact + Mobile menu */}
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 1 }}>
             <Button
               href="#contact"
-              variant="outlined"
               sx={{
                 textTransform: "none",
-                borderColor: "rgba(255,255,255,0.18)",
-                bgcolor: "rgba(255,255,255,0.06)",
-                color: "text.primary",
+                bgcolor: "#fff",
+                color: "#000",
                 borderRadius: 999,
-                px: 2,
-                "&:hover": { bgcolor: "rgba(255,255,255,0.10)", borderColor: "rgba(255,255,255,0.26)" },
+                px: 2.5,
+                fontWeight: 500,
+                "&:hover": {
+                  bgcolor: "rgba(255,255,255,0.85)",
+                },
               }}
             >
               Contact
@@ -152,17 +149,20 @@ export default function Header() {
                           fullWidth
                           href="#contact"
                           onClick={() => setDrawerOpen(false)}
-                          variant="outlined"
                           sx={{
                             textTransform: "none",
-                            borderColor: "rgba(255,255,255,0.18)",
-                            bgcolor: "rgba(255,255,255,0.06)",
+                            bgcolor: "#fff",
+                            color: "#000",
                             borderRadius: 999,
-                            "&:hover": { bgcolor: "rgba(255,255,255,0.10)" },
+                            fontWeight: 500,
+                            "&:hover": {
+                              bgcolor: "rgba(255,255,255,0.85)",
+                            },
                           }}
                         >
                           Contact
                         </Button>
+
                       </Box>
                     </List>
                   </Box>

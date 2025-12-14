@@ -49,6 +49,24 @@ export default function Hero() {
             </Typography>
 
             <Box sx={{ mt: 3, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
+
+              <Button
+                href="#contact"
+                sx={{
+                  textTransform: "none",
+                  bgcolor: "#fff",
+                  color: "#000",
+                  borderRadius: 999,
+                  px: 2.5,
+                  fontWeight: 500,
+                  "&:hover": {
+                    bgcolor: "rgba(255,255,255,0.85)",
+                  },
+                }}
+              >
+                Contact
+              </Button>
+
               <Button
                 href="#projects"
                 variant="contained"
@@ -63,19 +81,6 @@ export default function Hero() {
                 View projects
               </Button>
 
-              <Button
-                href="#contact"
-                variant="outlined"
-                sx={{
-                  textTransform: "none",
-                  borderRadius: 999,
-                  borderColor: "rgba(255,255,255,0.18)",
-                  color: "rgba(255,255,255,0.88)",
-                  "&:hover": { bgcolor: "rgba(255,255,255,0.06)" },
-                }}
-              >
-                Contact
-              </Button>
             </Box>
           </Grid>
 
