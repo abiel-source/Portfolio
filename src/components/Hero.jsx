@@ -24,10 +24,8 @@ export default function Hero() {
               variant="h2"
               sx={{
                 mt: 1.5,
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.05,
-                fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.4rem" },
+                // h2 typography (Inter, weight, tracking, lineHeight) now comes from theme.js
+                fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.6rem" },
                 overflowWrap: "anywhere",
               }}
             >
@@ -37,7 +35,7 @@ export default function Hero() {
             <Typography
               sx={{
                 mt: 2,
-                color: "rgba(255,255,255,0.70)",
+                color: "text.secondary",
                 fontSize: { xs: "1.05rem", md: "1.1rem" },
                 lineHeight: 1.7,
                 maxWidth: "60ch",
@@ -49,7 +47,6 @@ export default function Hero() {
             </Typography>
 
             <Box sx={{ mt: 3, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
-
               <Button
                 href="#contact"
                 sx={{
@@ -80,7 +77,6 @@ export default function Hero() {
               >
                 View projects
               </Button>
-
             </Box>
           </Grid>
 
