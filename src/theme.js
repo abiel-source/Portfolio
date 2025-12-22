@@ -1,6 +1,20 @@
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        "::selection": {
+          backgroundColor: "rgba(180,180,180,0.35)",
+          color: "#fff",
+        },
+        "::-moz-selection": {
+          backgroundColor: "rgba(180,180,180,0.35)",
+          color: "#fff",
+        },
+      },
+    },
+  },
   palette: {
     mode: "dark",
     background: {
@@ -22,8 +36,8 @@ export const theme = createTheme({
     },
     h2: {
       fontWeight: 350,
-      // letterSpacing: "-0.025em",
-      letterSpacing: "-0.012em",
+      letterSpacing: "-0.025em",
+      // letterSpacing: "-0.012em",
       lineHeight: 1.08,
     },
     h3: {

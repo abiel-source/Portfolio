@@ -1,58 +1,47 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import sfuLogo from './assets/sfu_logo.png'
-// import arloLogo from './assets/arlo_logo.png'
-// import agLogo from './assets/3ag_logo.png'
-// import micaLogo from './assets/mica_logo.png'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={arloLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import Education from "./components/Education";
+import LogoMarquee from "./components/LogoMarquee";
+import Spotlight from "./components/Spotlight";
+import ProjectsRow from "./components/ProjectsRow";
+import Experience from "./components/Experience";
+import Achievements from "./components/Achievements";
+import Footer from "./components/Footer";
+import FinalHero from "./components/FinalHero";
+import Introduction from "./components/Introduction";
+import ResponsiveMoon from "./components/ResponsiveMoon";
 
 export default function App() {
   return (
-    <Box sx={{ bgcolor: "#000", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        bgcolor: "#000",
+        minHeight: "100vh",
+        width: "100%",
+        // overflowX: "clip",
+        overflowX: "hidden",
+      }}
+    >
       <Header />
       <main>
+        <ResponsiveMoon />
         <Hero />
-
-        
+        {/* <LogoMarquee /> */}
+        <Introduction />
+        <Education />
+        {/* <LogoMarquee /> */}
+        <Spotlight />
+        <LogoMarquee />
+        <Experience />
+        {/* <LogoMarquee /> */}
+        <ProjectsRow />
+        <Achievements />
+        <FinalHero />
       </main>
+      <Footer />
     </Box>
   );
 }

@@ -16,9 +16,9 @@ import { useTheme } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const NAV = [
-  { label: "Work", href: "#work" },
+  { label: "Spotlight", href: "#spotlight" },
+  { label: "Work", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
 ];
 
 function getActiveTabIndex() {
