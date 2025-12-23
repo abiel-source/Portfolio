@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function FinalHero() {
   return (
@@ -78,7 +79,9 @@ export default function FinalHero() {
 
           <Box sx={{ display: "flex", justifyContent: "center", gap: 1.5, flexWrap: "wrap" }}>
             <Button
-              href="#contact"
+              component={RouterLink}
+              to="/contact"
+              // href="#contact"
               sx={{
                 textTransform: "none",
                 bgcolor: "#fff",

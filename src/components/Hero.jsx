@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import reactLogo from "../assets/react.svg";
 import Chrome from "../assets/chrome10.png";
 
+import { Link as RouterLink } from "react-router-dom";
+
 export default function Hero() {
   return (
     <Box id="top" sx={{ bgcolor: "#000" }}>
@@ -106,7 +108,9 @@ export default function Hero() {
                 }}
               >
                 <Button
-                  href="#contact"
+                  component={RouterLink}
+                  to="/contact"
+                  // href="#contact"
                   sx={{
                     textTransform: "none",
                     bgcolor: "#fff",

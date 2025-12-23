@@ -15,6 +15,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import { Link as RouterLink } from "react-router-dom";
+
 const NAV = [
   { label: "Spotlight", href: "#spotlight" },
   { label: "Work", href: "#experience" },
@@ -91,7 +93,9 @@ export default function Header() {
           {/* Right: Contact + Mobile menu */}
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 1 }}>
             <Button
-              href="#contact"
+              component={RouterLink}
+              to="/contact"
+              // href="#contact"
               sx={{
                 textTransform: "none",
                 bgcolor: "#fff",
@@ -147,7 +151,9 @@ export default function Header() {
                       <Box sx={{ mt: 1 }}>
                         <Button
                           fullWidth
-                          href="#contact"
+                          component={RouterLink}
+                          to="/contact"
+                          // href="#contact"
                           onClick={() => setDrawerOpen(false)}
                           sx={{
                             textTransform: "none",
