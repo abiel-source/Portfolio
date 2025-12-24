@@ -1,10 +1,8 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -14,26 +12,18 @@ import Container from "@mui/material/Container";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-
 import { Link as RouterLink } from "react-router-dom";
 
 const NAV = [
-  { label: "Spotlight", href: "#spotlight" },
-  { label: "Work", href: "#experience" },
-  { label: "Projects", href: "#projects" },
+  { label: "Spotlight", id: "spotlight" },
+  { label: "Work", id: "experience" },
+  { label: "Projects", id: "projects" },
 ];
-
-function getActiveTabIndex() {
-  const hash = window.location.hash || "";
-  const idx = NAV.findIndex((x) => x.href === hash);
-  return idx === -1 ? 0 : idx;
-}
 
 export default function Header() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const value = useMemo(() => (typeof window !== "undefined" ? getActiveTabIndex() : 0), []);
 
   return (
     <AppBar
@@ -50,7 +40,8 @@ export default function Header() {
           {/* Left: Name */}
           <Box sx={{ flex: 1 }}>
             <Button
-              href="#top"
+              component={RouterLink}
+              to="/"
               sx={{
                 color: "text.primary",
                 fontWeight: 700,
@@ -68,8 +59,10 @@ export default function Header() {
             <Box sx={{ display: "flex", gap: 3 }}>
               {NAV.map((item) => (
                 <Button
-                  key={item.href}
-                  href={item.href}
+                  key={item.id}
+                  component={RouterLink}
+                  to="/"
+                  state={{ scrollToId: item.id }}
                   variant="text"
                   disableRipple
                   sx={{
@@ -78,10 +71,7 @@ export default function Header() {
                     color: "text.primary",
                     minWidth: "auto",
                     p: 0,
-                    "&:hover": {
-                      backgroundColor: "transparent",
-                      opacity: 0.8,
-                    },
+                    "&:hover": { backgroundColor: "transparent", opacity: 0.8 },
                   }}
                 >
                   {item.label}
@@ -91,11 +81,18 @@ export default function Header() {
           )}
 
           {/* Right: Contact + Mobile menu */}
-          <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
             <Button
               component={RouterLink}
               to="/contact"
-              // href="#contact"
               sx={{
                 textTransform: "none",
                 bgcolor: "#fff",
@@ -103,9 +100,7 @@ export default function Header() {
                 borderRadius: 999,
                 px: 2.5,
                 fontWeight: 500,
-                "&:hover": {
-                  bgcolor: "rgba(255,255,255,0.85)",
-                },
+                "&:hover": { bgcolor: "rgba(255,255,255,0.85)" },
               }}
             >
               Contact
@@ -131,16 +126,21 @@ export default function Header() {
                   open={drawerOpen}
                   onClose={() => setDrawerOpen(false)}
                   PaperProps={{
-                    sx: { bgcolor: "#000", width: 300, borderLeft: "1px solid rgba(255,255,255,0.08)" },
+                    sx: {
+                      bgcolor: "#000",
+                      width: 300,
+                      borderLeft: "1px solid rgba(255,255,255,0.08)",
+                    },
                   }}
                 >
                   <Box sx={{ p: 2 }}>
                     <List>
                       {NAV.map((item) => (
                         <ListItemButton
-                          key={item.href}
-                          component="a"
-                          href={item.href}
+                          key={item.id}
+                          component={RouterLink}
+                          to="/"
+                          state={{ scrollToId: item.id }}
                           onClick={() => setDrawerOpen(false)}
                           sx={{ borderRadius: 2 }}
                         >
@@ -153,7 +153,6 @@ export default function Header() {
                           fullWidth
                           component={RouterLink}
                           to="/contact"
-                          // href="#contact"
                           onClick={() => setDrawerOpen(false)}
                           sx={{
                             textTransform: "none",
@@ -161,14 +160,11 @@ export default function Header() {
                             color: "#000",
                             borderRadius: 999,
                             fontWeight: 500,
-                            "&:hover": {
-                              bgcolor: "rgba(255,255,255,0.85)",
-                            },
+                            "&:hover": { bgcolor: "rgba(255,255,255,0.85)" },
                           }}
                         >
                           Contact
                         </Button>
-
                       </Box>
                     </List>
                   </Box>
