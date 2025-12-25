@@ -252,6 +252,7 @@ export default function ProjectsRow() {
     <Box
       id="projects"
       sx={{
+        display: { xs: "none", md: "block" }, // hide on mobile view
         bgcolor: "#000",
         py: { xs: 8, md: 12 },
         position: "relative",
