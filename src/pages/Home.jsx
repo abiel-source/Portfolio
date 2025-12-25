@@ -14,6 +14,7 @@ import Footer from "../components/Footer";
 import FinalHero from "../components/FinalHero";
 import Introduction from "../components/Introduction";
 import ResponsiveMoon from "../components/ResponsiveMoon";
+import ProjectsRowMobile from "../components/ProjectsRowMobile";
 
 export default function Home() {
   const location = useLocation();
@@ -56,7 +57,15 @@ export default function Home() {
         <Spotlight />
         <LogoMarquee />
         <Experience />
-        <ProjectsRow />
+
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <ProjectsRow />
+        </Box>
+
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <ProjectsRowMobile />
+        </Box>
+
         <Achievements />
         <FinalHero />
       </main>
