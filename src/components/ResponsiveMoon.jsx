@@ -112,7 +112,8 @@ export default function ResponsiveMoon() {
             }}
           >
             <Button
-              href="#contact"
+              component={RouterLink}
+              to="/contact"
               sx={{
                 textTransform: "none",
                 bgcolor: "#fff",
@@ -129,7 +130,9 @@ export default function ResponsiveMoon() {
             </Button>
 
             <Button
-              href="#projects"
+              component="a"
+              href="/files/Abiel_Kim_CV_2026.pdf"
+              download="Abiel_Kim_CV_2026.pdf"
               variant="contained"
               sx={{
                 textTransform: "none",
@@ -141,6 +144,7 @@ export default function ResponsiveMoon() {
             >
               Download CV
             </Button>
+
           </Box>
         </Box>
       </Container>
