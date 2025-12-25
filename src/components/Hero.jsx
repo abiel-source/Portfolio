@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import reactLogo from "../assets/react.svg";
 import Chrome from "../assets/chrome10.png";
 
 import { Link as RouterLink } from "react-router-dom";
