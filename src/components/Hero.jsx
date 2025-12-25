@@ -127,7 +127,9 @@ export default function Hero() {
                 </Button>
 
                 <Button
-                  href="#projects"
+                  component="a"
+                  href="/files/Abiel_Kim_CV_2026.pdf"
+                  download="Abiel_Kim_CV_2026.pdf"
                   variant="contained"
                   sx={{
                     textTransform: "none",
@@ -139,6 +141,8 @@ export default function Hero() {
                 >
                   Download CV
                 </Button>
+
+
               </Box>
             </Box>
           </Grid>

@@ -96,20 +96,21 @@ export default function FinalHero() {
             </Button>
 
             <Button
-              href="#projects"
+              component="a"
+              href="/files/Abiel_Kim_CV_2026.pdf"
+              download="Abiel_Kim_CV_2026.pdf"
               variant="contained"
               sx={{
                 textTransform: "none",
                 borderRadius: 999,
                 bgcolor: "rgba(255,255,255,0.12)",
                 color: "rgba(255,255,255,0.95)",
-                px: 3,
-                py: 1.1,
                 "&:hover": { bgcolor: "rgba(255,255,255,0.18)" },
               }}
             >
               Download CV
             </Button>
+
           </Box>
         </Box>
       </Container>
